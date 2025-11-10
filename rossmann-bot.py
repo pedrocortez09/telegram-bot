@@ -14,7 +14,7 @@ TOKEN = '8001603130:AAF0GtliBE0rtx9Kwxd4JdO6Uo0mlb-UQJQ'
 #https://api.telegram.org/bot8001603130:AAF0GtliBE0rtx9Kwxd4JdO6Uo0mlb-UQJQ/getUpdates
 
 # WEB HOOK
-#https://api.telegram.org/bot8001603130:AAF0GtliBE0rtx9Kwxd4JdO6Uo0mlb-UQJQ/setWebhook?url=https://stephenie-confineable-overfrankly.ngrok-free.dev
+#https://api.telegram.org/bot8001603130:AAF0GtliBE0rtx9Kwxd4JdO6Uo0mlb-UQJQ/setWebhook?url=https://telegram-bot-qn1w.onrender.com
 
 # SEND MESSAGE
 #https://api.telegram.org/bot8001603130:AAF0GtliBE0rtx9Kwxd4JdO6Uo0mlb-UQJQ/sendMessage?chat_id=8084855941&text=Hi Pedro
@@ -104,16 +104,16 @@ def index():
                 d2 = d1[['store', 'prediction']].groupby( 'store' ).sum().reset_index()
 
                 #send message
-                msg = 'Store Number {} will sell R${:,.2f} in the next 6 weeks'.format(d2['store'].values[0], d2['prediction'].values[0] ) 
+                msg = 'Loja Numero {} irá vender R${:,.2f} nas próximas 6 semanas'.format(d2['store'].values[0], d2['prediction'].values[0] )
 
                 send_message(chat_id, msg)
                 return Response('Ok', status=200)
 
             else:
-                send_message(chat_id, "store not avaliable")
+                send_message(chat_id, "Loja indisponivel")
                 return Response("OK", status=200)
         else:
-            send_message(chat_id, "store_id is wrong")
+            send_message(chat_id, "ID da Loja está incorreto")
             return Response("OK", status=200)
     else:
         return '<h1> ROSSMANN TELEGRAM BOT </h1>'
